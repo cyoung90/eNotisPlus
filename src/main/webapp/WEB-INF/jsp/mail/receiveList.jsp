@@ -4,7 +4,7 @@
 <html>
 <head>
 	<style>
-	    #btn_sendMail {
+	    #btn_writeMail {
 	      position: fixed;
 	      display: block;
 	      right: 0;
@@ -105,8 +105,8 @@
 	</div>
   </main>
 </div>
-	<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" id="btn_sendMail">
-	  <i class="material-icons">add</i>
+	<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" id="btn_writeMail">
+	  <i class="material-icons">edit</i>
 	</button>
 <!-- 본문 끝 -->
 <jsp:include page="/WEB-INF/include/include-body.jsp"/>
@@ -114,15 +114,14 @@
 		$(document).ready(function(){
 			if (!navigator.onLine){ alert("OFFLINE"); return false;}	// network Check
 			
-            /* $("#write").on("click", function(e){ //글쓰기 버튼
-                e.preventDefault();
-                fn_openBoardWrite();
-            }); */
-             
             $("tr[name='index']").on("click", function(e){ //row 클릭
                 e.preventDefault();
                 fn_openMailDetail($(this));
             });
+			
+			$("#btn_writeMail").click(function(){
+				common.openWriteMail();
+			});
         });
          
 /*         function fn_openBoardWrite(){
@@ -137,6 +136,15 @@
             comSubmit.addParam("idx", obj.attr("id"));
             comSubmit.submit();
         }
+        
+        var common = {
+				// edit 버튼 클릭
+				openWriteMail : function(obj){
+					var comSubmit = new ComSubmit();
+		            comSubmit.setUrl("<c:url value='/mail/writeMail.do'/>");
+		            comSubmit.submit();
+				}
+		}
 	</script>
 </body>
 </html>

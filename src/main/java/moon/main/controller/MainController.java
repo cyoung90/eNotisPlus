@@ -16,16 +16,15 @@ import moon.main.service.MainService;
 public class MainController {
 	Logger log = Logger.getLogger(this.getClass());
 
-	@Resource(name="mainService")
+	@Resource(name = "mainService")
 	private MainService mainService;
 
-	@RequestMapping(value="/main/login.do")
+	@RequestMapping(value = "/main/login.do")
 	public ModelAndView eNotisLogin(CommandMap commandMap) throws Exception {
 		ModelAndView mv = new ModelAndView("/main/main");
 
-		Map<String, Object> enotisUserInfo = mainService.selectEnotisUser(commandMap);	// 로그인 정보
-		
-		System.out.println(enotisUserInfo.toString());
+		Map<String, Object> enotisUserInfo = mainService.selectEnotisUser(commandMap); // 로그인 정보
+
 		mv.addObject("userInfo", enotisUserInfo);
 
 		return mv;

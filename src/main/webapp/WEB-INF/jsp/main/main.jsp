@@ -3,50 +3,40 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
-	<title>${titleName}</title>
-	
-	<!-- user setting -->
-	<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-light_blue.min.css" /><!-- 전체 테마 컬러 -->
-	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"><!-- 미터리얼 아이콘 -->
-	
-	<style>
-	.demo-layout-waterfall .mdl-layout__header-row .mdl-navigation__link:last-of-type  {
-	  padding-right: 0;
-	}
-	.demo-card-wide.mdl-card {
-	  width: 512px;
-	  align-content: center;
-	}
-	.demo-card-wide > .mdl-card__title {
-	  color: #fff;
-	  height: 176px;
-	  background: url('../images/home/rice.png') center / cover;
-	  width: calc(100% - 16px);
-	}
-	.demo-card-wide > .mdl-card__menu {
-	  color: #fff;
-	}
-	.demo-card-square.mdl-card {
-	  width: 320px;
-	  height: 320px;
-	}
-	.demo-card-square > .mdl-card__title {
-	  color: #fff;
-	  background:
-	    url('../images/home/a.jpg') bottom right 15% no-repeat #46B6AC;
-	}
-	.demo-card-square > .mdl-card__title.card2 {
-	  color: #fff;
-	  background:
-	    url('../images/home/b.jpg') bottom right 15% no-repeat #46B6AC;
-	}
-	.page-content {
-	  
-	}
-	.mdl-layout__drawer-button > .material-icons { margin-top: 10px;}
+	<!-- TODO add manifest here -->
+  	<link rel="manifest" href="${ctx}/manifest.json"/>
+	<style type="text/css">
+		.demo-layout-waterfall .mdl-layout__header-row .mdl-navigation__link:last-of-type  {
+		  padding-right: 0;
+		}
+		.demo-card-wide.mdl-card {
+		  width: 512px;
+		  align-content: center;
+		}
+		.demo-card-wide > .mdl-card__title {
+		  color: #fff;
+		  height: 176px;
+		  background: url('../images/home/rice.png') center / cover;
+		  width: calc(100% - 16px);
+		}
+		.demo-card-wide > .mdl-card__menu {
+		  color: #fff;
+		}
+		.demo-card-square.mdl-card {
+		  width: 320px;
+		  height: 320px;
+		}
+		.demo-card-square > .mdl-card__title {
+		  color: #fff;
+		  background:
+		    url('../images/home/a.jpg') bottom right 15% no-repeat #46B6AC;
+		}
+		.demo-card-square > .mdl-card__title.card2 {
+		  color: #fff;
+		  background:
+		    url('../images/home/b.jpg') bottom right 15% no-repeat #46B6AC;
+		}
+		.mdl-layout__drawer-button > .material-icons { margin-top: 10px;}
 	</style>
 </head>
 <body>
@@ -107,10 +97,12 @@
   </main>
 </div>
 <!-- 본문 끝 -->
-	<script>
+<jsp:include page="/WEB-INF/include/include-body.jsp"/>
+	<script type="text/javascript">
 		$(document).ready(function(){
-
-			console.log(navigator.onLine);
+			console.log("onLine Check : " + navigator.onLine);
+		
+			
 		})
 	</script>
 </body>

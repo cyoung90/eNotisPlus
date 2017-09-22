@@ -7,7 +7,6 @@ import javax.annotation.Resource;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
-import moon.common.common.CommandMap;
 import moon.main.dao.MainDAO;
 import moon.main.service.MainService;
 
@@ -20,7 +19,7 @@ public class MainServiceImpl implements MainService {
     private MainDAO mainDAO;
      
     @Override
-    public Map<String, Object> selectEnotisUser(CommandMap map) throws Exception {
+    public Map<String, Object> selectEnotisUser(Map<String, Object> map) throws Exception {
         return mainDAO.selectEnotisUser(map);
     }
 

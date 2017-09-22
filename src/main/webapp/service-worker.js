@@ -13,10 +13,10 @@
 // limitations under the License.
 
 
-var dataCacheName = 'weatherData-v2';
-var cacheName = 'weatherPWA-final-2';
+var dataCacheName = 'enotis+Data-v1';
+var cacheName = 'enotis+chche-1';
 var filesToCache = [
-	  '/eNotisPlus/index.html',
+/*	  '/eNotisPlus/index.html',
 	  '/eNotisPlus/scripts/app.js',
 	  '/eNotisPlus/styles/inline.css',
 	  '/eNotisPlus/images/clear.png',
@@ -31,7 +31,7 @@ var filesToCache = [
 	  '/eNotisPlus/images/sleet.png',
 	  '/eNotisPlus/images/snow.png',
 	  '/eNotisPlus/images/thunderstorm.png',
-	  '/eNotisPlus/images/wind.png'
+	  '/eNotisPlus/images/wind.png'*/
 
 ];
 

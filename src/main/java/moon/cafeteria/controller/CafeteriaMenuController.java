@@ -1,7 +1,5 @@
 package moon.cafeteria.controller;
 
-import java.util.Map;
-
 import javax.annotation.Resource;
 
 import org.apache.log4j.Logger;
@@ -23,10 +21,10 @@ public class CafeteriaMenuController {
 	public ModelAndView receiveMenu(CommandMap commandMap) throws Exception {
 		ModelAndView mv = new ModelAndView("/cafeteria/receiveMenu");
 
-		Map<String, Object> enotisUserInfo = mainService.selectEnotisUser(commandMap);	// 로그인 정보
+		//Map<String, Object> enotisUserInfo = mainService.selectEnotisUser(commandMap.getMap());	// 로그인 정보
 		
-		System.out.println(enotisUserInfo.toString());
-		mv.addObject("userInfo", enotisUserInfo);
+		//System.out.println(enotisUserInfo.toString());
+		mv.addObject("userInfo", "");
 
 		return mv;
 	}

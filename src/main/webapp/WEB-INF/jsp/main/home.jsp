@@ -105,5 +105,6 @@
 			
 		})
 	</script>
+	<script src="${ctx}/scripts/home.js"></script>
 </body>
 </html>

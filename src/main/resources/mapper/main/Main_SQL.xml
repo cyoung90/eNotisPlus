@@ -5,9 +5,22 @@
      <select id="selectEnotisUser" parameterType="hashmap" resultType="hashmap">
      	<![CDATA[
      		/* SQL_ID=main.selectEnotisUser */
+     		SELECT A.NFUID, A.USER_PASSWD, SCP.DEC_B64('DAMO','SID','NIST_MAIL', B.MAIL) AS MAIL
+			  FROM XFORG_PERSON A
+			     , XFORG_PERSON_INFO B
+			 WHERE A.NFUID = B.NFUID
+			   AND A.IS_VALID = '1'
+			   AND A.IS_LOCKED IN ('0','1') --0:정상,1:갱신필요
+			   AND A.NFUID = #{id}
+     	]]>
+     </select>
+     
+     <select id="selectEnotisUserEmail" parameterType="hashmap" resultType="hashmap">
+     	<![CDATA[
+     		/* SQL_ID=main.selectEnotisUser */
 			SELECT SCP.DEC_B64('DAMO','SID','NIST_MAIL', MAIL) AS MAIL
 			  FROM XFORG_PERSON_INFO
-			 WHERE NFUID = '8300120'
+			 WHERE NFUID = #{id}
      	]]>
      </select>
 </mapper>

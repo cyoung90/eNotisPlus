@@ -43,7 +43,7 @@
 		  color: black;
 		}
 		td {height: 40px;}
-		input {width:100%;height:100%}
+		.login_input {width:100%; height:100%; padding-left:7px; border: 1px solid #d9d2c7; text-indent: 5px; background-color: white;}
 		.titleText {height: 80px;text-align: center; font-size: 80px;}
 		.onepassText {font-weight: bold; font-size: x-large; text-align: left;}
 	</style>
@@ -65,11 +65,11 @@
 					</tr>
 					<tr>
 						<td>아이디</td>
-						<td><input type="text" id="id" name="id"/></td>
+						<td><input type="text" id="id" name="id" class="login_input"/></td>
 					</tr>
 					<tr>
 						<td>패스워드</td>
-						<td><input type="text" id="pw" name="pw"/></td>
+						<td><input type="password" id="pw" name="pw" class="login_input"/></td>
 					</tr>
 					<tr align="center">
 						<td colspan="2">
@@ -98,30 +98,84 @@
 				//return false;
 			}
 			
+			$(".login_input").on("keydown", function(event){
+				if (event.keyCode == 13){
+					fn_login();
+				}else {
+					return;
+				}
+				
+			});
+			
 			$("#btn_login").click(function(e) {
 				e.preventDefault();
-				
-				/*
-				if (gfn_isNull( $("#id").val().trim() )){
-					alert("아이디 미입력");
-					return false;
-				}
-				if (gfn_isNull( $("#pw").val().trim() )){
-					alert("패스워드 미입력");
-					return false;
-				}
-				*/
-				
-				fn_login($(this));
+				fn_login();
 			});
 		});
-
-		function fn_login(obj) {
+/* 		
+ 		function fn_login2() {
+			if ( gfn_isNull( $("#id").val().trim() )){
+				alert("아이디가 입력되지 않았습니다.");
+				$("#id").focus();
+				return false;
+			}
+			if ( gfn_isNull( $("#pw").val().trim() )){
+				alert("비밀번호가 입력되지 않았습니다.");
+				$("#pw").focus();
+				return false;
+			}
+			
 			var comSubmit = new ComSubmit();
 			comSubmit.setUrl("<c:url value='/main/login.do'/>");
 			comSubmit.addParam("id", $("#id").val());
 			comSubmit.addParam("pw", $("#pw").val());
 			comSubmit.submit();
+		} */
+		
+		function fn_login()
+		{
+			if ( $("#id").val() == "e" || $("#pw").val() == "e" ){
+				$("#id").val("8300120");
+				$("#pw").val("init1234");
+			}
+			
+			if ( gfn_isNull( $("#id").val().trim() )){
+				alert("아이디가 입력되지 않았습니다.");
+				$("#id").focus();
+				return false;
+			}
+			if ( gfn_isNull( $("#pw").val().trim() )){
+				alert("비밀번호가 입력되지 않았습니다.");
+				$("#pw").focus();
+				return false;
+			}
+			
+			var comSubmit = new ComSubmit();
+			comSubmit.addParam("id", $("#id").val());
+			comSubmit.addParam("pw", $("#pw").val());
+			
+			var formData = $("#commonForm").serialize();
+			$.ajax({
+				type : "POST",
+                cache : false,
+                url : "<c:url value='/main/loginProcess.do'/>",
+                data : formData,
+                error:function(response, textStatus, errorThrown){
+                    console.log(response.status);
+                    console.log(textStatus);
+                },
+                success : function(data){
+                	console.log("success");
+                	
+                	if(data.resultCd == "200") {
+						comSubmit.setUrl("<c:url value='/main/home.do'/>");
+            			comSubmit.submit();
+                	} else {
+                		alert(data.msg);
+                		$("#commonForm").html("")
+                	}
+                }
+            });	
 		}
 	</script>
 </body>

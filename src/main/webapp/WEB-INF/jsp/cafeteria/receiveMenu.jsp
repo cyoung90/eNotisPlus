@@ -82,7 +82,7 @@
       </div>
     </div>
   </header>
-<jsp:include page="../common/leftMenu.jsp"/>
+<jsp:include page="../../include/leftMenu.jsp"/>
   <main class="mdl-layout__content">
 	<div class="page-content">
 		<div class="mdl-grid">

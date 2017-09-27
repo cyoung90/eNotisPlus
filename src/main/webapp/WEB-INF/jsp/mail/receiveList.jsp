@@ -31,10 +31,10 @@
         </div>
       </div>
     </div>
-	<jsp:include page="/WEB-INF/jsp/common/tabs.jsp"/>
+	<jsp:include page="../../include/tabs.jsp"/>
   </header>
 
-<jsp:include page="/WEB-INF/jsp/common/leftMenu.jsp"/>
+<jsp:include page="../../include/leftMenu.jsp"/>
   <main class="mdl-layout__content">
 	<div class="page-content">
 		<section class="mdl-layout__tab-panel is-active" id="fixed-tab-1">

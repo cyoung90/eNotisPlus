@@ -48,7 +48,7 @@
 			</nav>
 		</div>
 	</header>
-<jsp:include page="../common/leftMenu.jsp" />
+<jsp:include page="../../include/leftMenu.jsp" />
 	<main class="mdl-layout__content">
 		<div class="page-content">
 			<div class="demo-card mdl-card mdl-shadow--2dp mdl-color--grey-100" style="width: auto;min-height: 150;" id="mail_header">

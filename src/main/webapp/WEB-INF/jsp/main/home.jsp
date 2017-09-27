@@ -3,8 +3,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<!-- TODO add manifest here -->
-  	<link rel="manifest" href="${ctx}/manifest.json"/>
 	<style type="text/css">
 		.demo-layout-waterfall .mdl-layout__header-row .mdl-navigation__link:last-of-type  {
 		  padding-right: 0;
@@ -57,7 +55,7 @@
       </div>
     </div>
   </header>
-<jsp:include page="../common/leftMenu.jsp"/>
+<jsp:include page="../../include/leftMenu.jsp"/>
   <main class="mdl-layout__content">
 	<div class="page-content">
 		<div class="mdl-grid">
@@ -97,14 +95,11 @@
   </main>
 </div>
 <!-- 본문 끝 -->
-<jsp:include page="/WEB-INF/include/include-body.jsp"/>
+<jsp:include page="../../include/include-body.jsp"/>
 	<script type="text/javascript">
 		$(document).ready(function(){
 			console.log("onLine Check : " + navigator.onLine);
-		
-			
 		})
 	</script>
-	<script src="${ctx}/scripts/home.js"></script>
 </body>
 </html>

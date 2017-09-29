@@ -17,6 +17,22 @@ public class MailController {
 	@Resource(name="mailService")
 	private MailService mailService;
 
+	/**
+	 * 메일쓰기 : Form 이동
+	 * @param  commandMap
+	 * @return ModelAndView
+	 */
+	@RequestMapping(value="/mail/writeMail.do")
+	public ModelAndView writeMail(CommandMap commandMap) throws Exception {
+		ModelAndView mv = new ModelAndView("/mail/writeMail");
+		
+		//List<Map<String, Object>> mailList = mailService.getReceiveList(commandMap.getMap());
+		
+		//mv.addObject("mailList", mailList);
+		
+		return mv;
+	}
+	
 	@RequestMapping(value="/mail/receiveList.do")
 	public ModelAndView receiveList(CommandMap commandMap) throws Exception {
 		ModelAndView mv = new ModelAndView("/mail/receiveList");
@@ -30,17 +46,6 @@ public class MailController {
 	
 	@RequestMapping(value="/mail/viewDetail.do")
 	public ModelAndView viewDetail(CommandMap commandMap) throws Exception {
-		ModelAndView mv = new ModelAndView("/mail/receiveList");
-		
-		//List<Map<String, Object>> mailList = mailService.getReceiveList(commandMap.getMap());
-		
-		//mv.addObject("mailList", mailList);
-		
-		return mv;
-	}
-	
-	@RequestMapping(value="/mail/writeMail.do")
-	public ModelAndView writeMail(CommandMap commandMap) throws Exception {
 		ModelAndView mv = new ModelAndView("/mail/receiveList");
 		
 		//List<Map<String, Object>> mailList = mailService.getReceiveList(commandMap.getMap());

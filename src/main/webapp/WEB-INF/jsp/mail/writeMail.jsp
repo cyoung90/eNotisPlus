@@ -3,26 +3,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-<title>${titleName}</title>
-<style>
-#btn_sendMail {
-	position: fixed;
-	display: block;
-	right: 0;
-	bottom: 0;
-	margin-right: 40px;
-	margin-bottom: 40px;
-	z-index: 900;
-}
-</style>
+
 </head>
 <body>
-<form id="frm" name="frm">
-
-</form>
+<!-- 본문 시작 -->
 <!-- The drawer is always open in large screens. The header is always shown, even in small screens. -->
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
 	<header class="mdl-layout__header">
@@ -136,21 +120,21 @@
 </div>
 </body>
 <!-- 본문 끝 -->
-<script>
-	$(document).ready(function() {
-		$("#btn_sendMail").click(function(e) {
-			if (!navigator.onLine) {
-				alert("OFFLINE");
-				return false;
-			} // network Check
-
-			var frm = document.getElementById("frm");
-			frm.method = "POST";
-			frm.action = "${ctx}/main/login.do";
-			frm.submit();
-			e.preventDefault();
+<jsp:include page="../../include/include-body.jsp"/>
+	<script>
+		$(document).ready(function() {
+			$("#btn_sendMail").click(function(e) {
+				if (!navigator.onLine) {
+					alert("OFFLINE");
+					return false;
+				} // network Check
+	
+				var frm = document.getElementById("frm");
+				frm.method = "POST";
+				frm.action = "${ctx}/main/login.do";
+				frm.submit();
+				e.preventDefault();
+			})
 		})
-	})
-</script>
-
+	</script>
 </html>

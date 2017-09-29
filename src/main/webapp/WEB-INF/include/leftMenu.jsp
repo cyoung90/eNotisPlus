@@ -14,7 +14,7 @@
 		<a href="${ctx}/main/home.do">${projectName}</a>
 	</span>
 	<nav class="mdl-navigation">
-		<a class="mdl-navigation__link closed-menu" href="${ctx}/mail/viewDetail.do">
+		<a class="mdl-navigation__link" href="${ctx}/mail/viewDetail.do">
 			<i class="material-icons" role="presentation">create</i>&nbsp;&nbsp;메일쓰기
 		</a>
 		<a class="mdl-navigation__link" href="${ctx}/mail/receiveList.do">
@@ -23,7 +23,7 @@
 		<a class="mdl-navigation__link closed-menu" href="${ctx}/mail/receiveList.do">
 			<i class="material-icons" role="presentation">send</i>&nbsp;&nbsp;보낸메일함
 		</a>
-		<a class="mdl-navigation__link" href="${ctx}/mail/receiveList.do">
+		<a class="mdl-navigation__link closed-menu" href="${ctx}/mail/receiveList.do">
 			<i class="material-icons" role="presentation">note</i>&nbsp;&nbsp;공지사항
 		</a>
 		<a class="mdl-navigation__link closed-menu" href="${ctx}/cafeteria/receiveMenu.do">

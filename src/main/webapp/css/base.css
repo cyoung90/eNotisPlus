@@ -76,3 +76,10 @@ td {
 		margin-bottom: 40px;
 		z-index: 900;
 	}
+	
+.w100  {width : 100%;}
+.wAuto {width : auto;}
+.h100  {height: 100%;}
+.hAuto {height: auto;}
+
+section.section--center { max-width: 860px; }

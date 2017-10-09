@@ -6,6 +6,7 @@ import java.util.Map;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
@@ -33,7 +34,11 @@ public class MainController {
 	 */
 	@RequestMapping("/main/loginProcess.do")
 	public @ResponseBody ModelAndView goLoginProcess(@RequestParam(required = true) String id, @RequestParam(required = true) String pw,
-			HttpServletResponse response) throws Exception {
+			HttpSession session, HttpServletResponse response) throws Exception {
+		
+		if ( session.getAttribute("login") != null ){
+            session.removeAttribute("login");
+        }
 		
 		Map<String, Object> result = new HashMap<>();
 		
@@ -50,8 +55,6 @@ public class MainController {
 			
 			Map<String, Object> userInfo =  mainService.selectEnotisUser(map);
 			
-			//HttpSession session = request.getSession();
-			//session.setAttribute("userInfo", userInfo);
 			if (userInfo == null) {
 				result.put("resultCd", "400");
 				result.put("msg", "아이디가 존재하지 않습니다.");
@@ -60,6 +63,19 @@ public class MainController {
 				result.put("userInfo", userInfo);
 				result.put("resultCd", "200");
 				result.put("msg", "로그인 성공");
+				
+				session.setAttribute("login", userInfo);
+//				if ( dto.isUseCookie() ){ // dto 클래스 안에 useCookie 항목에 폼에서 넘어온 쿠키사용 여부(true/false)가 들어있을 것임
+//	                // 쿠키 사용한다는게 체크되어 있으면...
+//	                // 쿠키를 생성하고 현재 로그인되어 있을 때 생성되었던 세션의 id를 쿠키에 저장한다.
+//	                Cookie cookie = new Cookie("loginCookie", session.getId());
+//	                // 쿠키를 찾을 경로를 컨텍스트 경로로 변경해 주고...
+//	                cookie.setPath("/");
+//	                cookie.setMaxAge(60*60*24*7); // 단위는 (초)임으로 7일정도로 유효시간을 설정해 준다.
+//	                // 쿠키를 적용해 준다.
+//	                response.addCookie(cookie);
+//	            }
+
 			}else {
 				result.put("resultCd", "400");
 				result.put("msg", "패스워드가 틀렸습니다.");

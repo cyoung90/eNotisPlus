@@ -14,7 +14,7 @@
 		<a href="${ctx}/main/home.do">${projectName}</a>
 	</span>
 	<nav class="mdl-navigation">
-		<a class="mdl-navigation__link" href="${ctx}/mail/viewDetail.do">
+		<a class="mdl-navigation__link" href="${ctx}/mail/writeMail.do">
 			<i class="material-icons" role="presentation">create</i>&nbsp;&nbsp;메일쓰기
 		</a>
 		<a class="mdl-navigation__link" href="${ctx}/mail/receiveList.do">
@@ -41,7 +41,7 @@
 <script>
 	$(document).ready(function(){
 		$(".closed-menu").on("click", function(){
-			alert("준비중인 메뉴입니다.");
+			alert("서비스 준비중입니다.");
 			return false;
 		})
 	});

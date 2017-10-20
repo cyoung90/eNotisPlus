@@ -13,8 +13,8 @@
 	display: block;
 	right: 0;
 	bottom: 0;
-	margin-right: 40px;
-	margin-bottom: 40px;
+	margin-right: 20px;
+	margin-bottom: 20px;
 	z-index: 900;
 }
 </style>
@@ -86,52 +86,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-			<div class="mdl-grid">
-				<div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet">Content</div>
-				<div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet">goes</div>
-				<div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet">here</div>
-			</div>
-			<div class="mdl-grid">
-				<div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-phone">CS
-					2 (4 on phone)</div>
-				<div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-phone">CS
-					2 (4 on phone)</div>
-				<div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-phone">CS
-					2 (4 on phone)</div>
-				<div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-phone">CS
-					2 (4 on phone)</div>
-			</div>
-
-		</div>
-		<footer class="mdl-mini-footer">
-		<div class="mdl-mini-footer__left-section">
-			<div class="mdl-logo">Mini-footer Heading</div>
-			<ul class="mdl-mini-footer__link-list">
-				<li><a href="">Link 1</a></li>
-				<li><a href="">Link 2</a></li>
-				<li><a href="">Link 3</a></li>
-			</ul>
-		</div>
-		<div class="mdl-mini-footer__right-section">
-			<button class="mdl-mini-footer__social-btn"></button>
-			<button class="mdl-mini-footer__social-btn"></button>
-			<button class="mdl-mini-footer__social-btn"></button>
-		</div>
-		</footer>
 	</main>
 </div>
 </body>

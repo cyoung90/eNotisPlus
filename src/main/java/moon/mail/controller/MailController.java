@@ -96,7 +96,7 @@ public class MailController {
 	
 	@RequestMapping(value="/mail/viewDetail.do")
 	public ModelAndView viewDetail(CommandMap commandMap) throws Exception {
-		ModelAndView mv = new ModelAndView("/mail/receiveList");
+		ModelAndView mv = new ModelAndView("/mail/viewDetail");
 		
 		//List<Map<String, Object>> mailList = mailService.getReceiveList(commandMap.getMap());
 		

@@ -9,11 +9,12 @@
 	      display: block;
 	      right: 0;
 	      bottom: 0;
-	      margin-right: 40px;
-	      margin-bottom: 40px;
+	      margin-right: 20px;
+	      margin-bottom: 20px;
 	      z-index: 900;
 	    }
 	</style>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 </head>
 <body>
 <!-- The drawer is always open in large screens. The header is always shown, even in small screens. -->

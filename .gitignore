@@ -1,3 +1,4 @@
 /target/
 /.classpath
 *.class
+src/main/resources/config/spring/context-datasource.xml

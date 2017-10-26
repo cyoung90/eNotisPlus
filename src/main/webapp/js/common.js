@@ -32,3 +32,17 @@ function ComSubmit(opt_formId) {
 		frm.submit();
 	};
 }
+
+/**
+ *	O : 운영 환경 , Q : 테스트 환경 , L : 로컬 환경
+ *  운영 : false, 개발 : true
+ */
+function isQa(){
+	var hostname = window.location.hostname;
+	
+	if ( hostname == "beacon.daekyo.com" ){
+		return false;
+	} else {
+		return true;
+	}
+}

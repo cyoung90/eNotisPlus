@@ -10,6 +10,26 @@ import org.apache.commons.logging.LogFactory;
 public class Constants {
 	private static final Log log = LogFactory.getLog(Constants.class);
 	
+	public static boolean isQa(){
+		try {
+			String hostName = getHostName();
+			
+			log.debug(hostName);
+			
+			if (hostName.equals("WIN-DCF574K5UGF")){
+				return false;
+			}
+			else{
+				return true;
+			}
+		} 
+		catch (IOException e) {
+			// 일단 상용에서 문제없게
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
 	/**
 	 * O : 운영 환경, Q : 테스트 환경, L : 로컬 환경
 	 */
@@ -21,7 +41,7 @@ public class Constants {
 			log.debug("host name  : " + hostName);
 			log.debug("ip address : " + ipAddress);
 
-			if (ipAddress.equals("")) {
+			if (ipAddress.equals("WIN-DCF574K5UGF")) {
 				return "O";
 			} else if (hostName.equals("ChoiChaYoung")) {
 				return "Q";

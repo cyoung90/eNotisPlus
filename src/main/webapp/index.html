@@ -61,8 +61,8 @@
 	</div>
 	<dialog class="mdl-dialog">
 		<div class="mdl-dialog__content" style="text-align: center;">
-			<p><img src="images/QRCodeImg.png"/></p>
-			<h4>Short URL : goo.gl/nokC5p</h4>
+			<p id="qrCodeName"><img src="images/QRCodeImg.png"/></p>
+			<h4>Short URL : <span id="shortUrl">goo.gl/ryYDgg</span></h4>
 		</div>
 		<div class="mdl-dialog__actions">
 			<button type="button" class="mdl-button close">닫기</button>
@@ -74,7 +74,6 @@
 <footer>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			
 			setDialog();
 			
 			// network Check
@@ -175,6 +174,26 @@
 			dialog.querySelector('.close').addEventListener('click', function() {
 			   dialog.close();
 			});
+		}
+		
+		function setQRCode(){
+			var o_url = "https://goo.gl/ryYDgg";
+			var hostname = window.location.hostname;
+			console.log("window.location.hostname >> " + window.location.hostname);
+			console.log("window.location.href >> " + window.location.href);
+			console.log("window.location.host >> " + window.location.host);
+			console.log("window.location.port >> " + window.location.port);
+			console.log("window.location.pathname >> " + window.location.pathname);
+			console.log("window.location.search >> " + window.location.search);
+			console.log("window.location.protocol >> " + window.location.protocol);
+			console.log(window.location);
+			
+			if ( isQa() ){
+				alert("QA");
+			}else {
+				alert("O");
+				
+			}
 		}
 	</script>
 

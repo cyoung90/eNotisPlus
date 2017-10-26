@@ -24,7 +24,7 @@
 			<i class="material-icons" role="presentation">send</i>&nbsp;&nbsp;보낸메일함
 		</a>
 		<a class="mdl-navigation__link closed-menu" href="${ctx}/mail/receiveList.do">
-			<i class="material-icons" role="presentation">note</i>&nbsp;&nbsp;공지사항
+			<i class="material-icons" role="presentation">speaker_notes</i>&nbsp;&nbsp;공지사항
 		</a>
 		<a class="mdl-navigation__link closed-menu" href="${ctx}/cafeteria/receiveMenu.do">
 			<i class="material-icons" role="presentation">restaurant</i>&nbsp;&nbsp;주간식당메뉴

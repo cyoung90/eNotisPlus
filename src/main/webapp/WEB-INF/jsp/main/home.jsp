@@ -36,6 +36,9 @@
 		    url('../images/home/b.jpg') bottom right 15% no-repeat #46B6AC;
 		}
 		.mdl-layout__drawer-button > .material-icons { margin-top: 10px;}
+		
+		.page-content a { min-height:100px; }
+		table {text-align: center; margin:auto;}
 	</style>
 </head>
 <body>
@@ -59,6 +62,76 @@
 <jsp:include page="../../include/leftMenu.jsp"/>
   <main class="mdl-layout__content">
 	<div class="page-content">
+		<table class="w100">
+			<tr>
+				<td>
+					<a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect">
+						<div class="">
+							<div class="">
+								<i class="material-icons" role="presentation">restaurant</i>
+							</div>
+							<div class="">
+								주간식당메뉴
+							</div>
+						</div>
+					</a>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect">
+						<div class="">
+							<div class="">
+								<i class="material-icons" role="presentation">mail</i>
+							</div>
+							<div class="">
+								메일
+							</div>
+						</div>
+					</a>
+				</td>
+				<td>
+					<a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect">
+						<div class="">
+							<div class="">
+								<i class="material-icons" role="presentation">speaker_notes</i>
+							</div>
+							<div class="">
+								공지사항
+							</div>
+						</div>
+					</a>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect">
+						<div class="">
+							<div class="">
+								<i class="material-icons" role="presentation">phone</i>
+							</div>
+							<div class="">
+								내선
+							</div>
+						</div>
+					</a>
+				</td>
+				<td>
+					<a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect">
+						<div class="">
+							<div class="">
+								<i class="material-icons" role="presentation">wb_sunny</i>
+							</div>
+							<div class="">
+								날씨
+							</div>
+						</div>
+					</a>
+				</td>
+			</tr>
+		</table>
+		
+		
 		<div class="mdl-grid">
 			<div class="mdl-grid demo-content">
           <div class="demo-cards mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">

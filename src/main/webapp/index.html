@@ -7,7 +7,7 @@
 	<title>eNotis+</title>
 		
 	<!-- TODO add manifest here -->
-  	<link rel="manifest" href="manifest.json">
+	<link rel="manifest" href="manifest.json">
 	<!-- Add to home screen for Safari on iOS -->
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -17,6 +17,7 @@
 	<meta name="msapplication-TileColor" content="#ffffff">
 	<!-- Window title icon -->
 	<link rel="shortcut icon" href="favicon.ico">
+	<meta name="msapplication-starturl" content="index.html">
 	
 	<link rel="import" href="include/header.html">
 </head>
@@ -97,7 +98,7 @@
 			});
 		});
 		
-			function fn_login2() {
+		function fn_login2() {
 			if ( gfn_isNull( $("#id").val().trim() )){
 				alert("아이디가 입력되지 않았습니다.");
 				$("#id").focus();
@@ -175,29 +176,9 @@
 			   dialog.close();
 			});
 		}
-		
-		function setQRCode(){
-			var o_url = "https://goo.gl/ryYDgg";
-			var hostname = window.location.hostname;
-			console.log("window.location.hostname >> " + window.location.hostname);
-			console.log("window.location.href >> " + window.location.href);
-			console.log("window.location.host >> " + window.location.host);
-			console.log("window.location.port >> " + window.location.port);
-			console.log("window.location.pathname >> " + window.location.pathname);
-			console.log("window.location.search >> " + window.location.search);
-			console.log("window.location.protocol >> " + window.location.protocol);
-			console.log(window.location);
-			
-			if ( isQa() ){
-				alert("QA");
-			}else {
-				alert("O");
-				
-			}
-		}
 	</script>
 
-	<script src="scripts/home.js" async></script>
+	<script src="scripts/app.js" async></script>
 	
 </footer>
 </html>

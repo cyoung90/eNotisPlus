@@ -12,12 +12,13 @@
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 	<meta name="apple-mobile-web-app-title" content="eNotis+">
-	<link rel="apple-touch-icon" href="images/eNotisIcons/Icon_144_144.png">
-	<meta name="msapplication-TileImage" content="images/eNotisIcons/Icon_144_144.png">
+	<link rel="apple-touch-icon" href="images/app-icons/icon-144x144.png">
+	<meta name="msapplication-TileImage" content="images/app-icons/icon-144x144.png">
 	<meta name="msapplication-TileColor" content="#ffffff">
 	<!-- Window title icon -->
 	<link rel="shortcut icon" href="favicon.ico">
 	<meta name="msapplication-starturl" content="index.html">
+	<!-- <link rel="canonical" href="localhost/"> -->
 	
 	<link rel="import" href="include/header.html">
 </head>
@@ -52,8 +53,18 @@
 							</td>
 						</tr>
 						<tr style="font-size: small;">
-							<td>ID저장</td>
+							<td>
+								<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-1">
+									<input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" checked>
+									<span class="mdl-checkbox__label" style="font-size: 93%">자동로그인</span>
+								</label>
+							</td>
 							<td align="right">비밀번호 초기화 | One-Pass란?</td>
+						</tr>
+						<tr>
+							<td>
+								<button id="btn_test">테스트 버튼</button>
+							</td>
 						</tr>
 					</table>
 				</div>
@@ -96,6 +107,14 @@
 				e.preventDefault();
 				fn_login();
 			});
+			
+			$("#btn_test").click(function(e){
+				e.preventDefault();
+				
+				var comSubmit = new ComSubmit();
+				comSubmit.setUrl("components/home/home.jsp");
+				comSubmit.submit();			
+			});
 		});
 		
 		function fn_login2() {
@@ -111,7 +130,7 @@
 			}
 			
 			var comSubmit = new ComSubmit();
-			comSubmit.setUrl("<c:url value='/main/login.do'/>");
+			comSubmit.setUrl("main/login.do");
 			comSubmit.addParam("id", $("#id").val());
 			comSubmit.addParam("pw", $("#pw").val());
 			comSubmit.submit();

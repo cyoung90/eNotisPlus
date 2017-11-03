@@ -104,7 +104,13 @@ public class MainController {
 	public ModelAndView eNotisLogin2(ModelAndView mv, HttpServletRequest request, HttpServletResponse response, CommandMap commandMap) throws Exception {
 		mv.setViewName("/main/home");
 		
-		//Map<String, Object> enotisUserInfo = mainService.selectEnotisUser(commandMap.getMap()); // 로그인 정보
+		if (commandMap.getMap().get("id") != null) {
+			
+			Map<String, Object> enotisUserInfo = mainService.selectEnotisUser(commandMap.getMap()); // 로그인 정보
+			
+			mv.addObject("userInfo", enotisUserInfo);
+		}
+		
 		
 		return mv;
 	}

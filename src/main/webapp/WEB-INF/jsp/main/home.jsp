@@ -14,7 +14,7 @@
 		.demo-card-wide > .mdl-card__title {
 		  color: #fff;
 		  /* height: 176px; */
-		  background: url('../images/home/rice.png') center / cover;
+		  background: url('../../images/app-icons/icon-384x384.png') center / cover;
 		  /* width: calc(100% - 16px); */
 		}
 		.demo-card-wide > .mdl-card__menu {
@@ -27,13 +27,11 @@
 		.demo-card-square > .mdl-card__title.card {
 		  color: #fff;
 		  width: 800px;
-		  background:
-		    url('../images/home/a.jpg') bottom right 15% no-repeat #46B6AC;
+		  background: url('../../images/app-icons/icon-384x384.png') bottom right 15% no-repeat #46B6AC;
 		}
 		.demo-card-square > .mdl-card__title.card2 {
 		  color: #fff;
-		  background:
-		    url('../images/home/b.jpg') bottom right 15% no-repeat #46B6AC;
+		  background: url('../../images/app-icons/icon-384x384.png') bottom right 15% no-repeat #46B6AC;
 		}
 		.mdl-layout__drawer-button > .material-icons { margin-top: 10px;}
 		
@@ -71,8 +69,9 @@
 								<i class="material-icons" role="presentation">restaurant</i>
 							</div>
 							<div class="">
-								주간식당메뉴
+								주간식당메뉴test
 							</div>
+							<div><span id="testid"></span></div>
 						</div>
 					</a>
 				</td>
@@ -252,9 +251,35 @@
 <!-- 본문 끝 -->
 <jsp:include page="../../include/include-body.jsp"/>
 	<script type="text/javascript">
+	var app = {
+			user : {}
+	}
+	
 		$(document).ready(function(){
-			console.log("onLine Check : " + navigator.onLine);
+			console.log("online Check : " + navigator.onLine);
+			
+			if ("${userInfo}" != null && "${userInfo}" != ""){
+				var userInfo = "${userInfo}";
+				//var userInfo = JSON.parse("${userInfo}");
+				app.user = userInfo;
+				
+				console.log("${userInfo}");
+				console.log("userInfo $", userInfo);
+				//console.log("JSON.parse", JSON.parse(userInfo)); X
+				console.log("JSON.stringify", JSON.stringify(userInfo));
+				//console.log("Map", userInfo.get("NFUID"));
+				//console.log("Map", userInfo.getMap());
+				
+				
+				
+				$("#testid").val(app.user.NFUID);
+			}
+			
+			console.log(app);
+			
 		})
+		
+
 	</script>
 </body>
 </html>

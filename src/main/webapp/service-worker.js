@@ -1,15 +1,15 @@
 var dataCacheName = 'eNotis+_Data-v1';
-var cacheName = 'eNotis+_step_1_1';
+var cacheName = 'eNotis+_step_1_2';
 // 캐시 저장소
 var filesToCache = [
 	'/',
 	'/index.html',
 	'/scripts/app.js',
 	'/styles/base.css',
-	'/styles/inline.css'
-/*	'/include/header.html',
-	'/include/leftMenu.html',
-	
+	'/styles/inline.css',
+	'/include/header.html',
+	'/include/leftMenu.html'
+/*	
 	//componets
 	'/components/home/home.html',
 	'/components/home/homeApp.js'*/

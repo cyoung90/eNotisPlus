@@ -54,8 +54,8 @@
 						</tr>
 						<tr style="font-size: small;">
 							<td>
-								<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-1">
-									<input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" checked>
+								<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="chk_autoLogin">
+									<input type="checkbox" id="chk_autoLogin" value="true" class="mdl-checkbox__input">
 									<span class="mdl-checkbox__label" style="font-size: 93%">자동로그인</span>
 								</label>
 							</td>
@@ -96,7 +96,7 @@
 			
 			$(".login_input").on("keydown", function(event){
 				if (event.keyCode == 13){
-					fn_login();
+					//fn_login();
 				}else {
 					return;
 				}
@@ -105,7 +105,7 @@
 			
 			$("#btn_login").click(function(e) {
 				e.preventDefault();
-				fn_login();
+				//fn_login();
 			});
 			
 			$("#btn_test").click(function(e){

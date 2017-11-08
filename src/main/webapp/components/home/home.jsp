@@ -257,4 +257,5 @@
 		})
 	</script>
 </body>
+	<script src="homeApp.js" async></script>
 </html>

@@ -17,14 +17,46 @@
  ******************************************************************************/
 	$(document).ready(function(){
 		
-
+		// 자동로그인
+		if ( localStorage.autoLogin == 'true' ){
+			var user = JSON.parse( localStorage.user );
+			
+			if (user.ID) {
+				$("#id").val( user.ID );
+				var comSubmit = new ComSubmit();
+				comSubmit.setUrl("/components/home/home.jsp");
+				comSubmit.submit();
+			}
+		}
 	});
 	
-//	document.getElementById('btn_login').addEventListener('click', function() {
-//
-//		
-//	});
-//	
+	document.getElementById('btn_login').addEventListener('click', function() {
+		
+		// test 사번
+		if ( $("#id").val() == 'e' ) {
+			$("#id").val("8300120");
+			$("#pw").val("init1234");
+		}
+		
+		if ( gfn_isNull( $("#id").val().trim() )){
+			alert("아이디가 입력되지 않았습니다.");
+			$("#id").focus();
+			return false;
+		}
+		
+		if ( gfn_isNull( $("#pw").val().trim() )){
+			alert("비밀번호가 입력되지 않았습니다.");
+			$("#pw").focus();
+			return false;
+		}
+		
+		var id = document.getElementById('id').value;
+		var pw = document.getElementById('pw').value;
+		
+		app.loginProcess(id, pw);
+		
+	});
+	
 	
 	
 	
@@ -39,7 +71,15 @@
  ******************************************************************************/
 	app.saveUserInfo = function(data) {
 		
-
+		var lastUpdateDt = new Date();
+		data.lastUpdateDt = lastUpdateDt;
+		
+		var user = JSON.stringify(data);
+		var autoLogin = document.getElementById("chk_autoLogin").checked;
+		
+		// 로컬에 저장
+	    localStorage.user = user;	
+	    localStorage.autoLogin = autoLogin;
 	}
 
 /*******************************************************************************
@@ -113,7 +153,19 @@
 //			request.send(formData);
 	};
 	
+	app.updateForecasts = function() {
+		var keys = Object.keys(app.visibleCards);
+			keys.forEach(function(key) {
+			app.getForecast(key);
+		});
+	};
 
+	var initUser = {
+			id: '8300120',
+			name: '최차영',
+			mail: 'chayoung_choi@daekyo.co.kr',
+			lastUpdateDt: '20171107180000'
+	}
 
 	// 화면 이동
 	app.moveComponent = function(url){

@@ -1,4 +1,7 @@
 (function() {
+	// ECMAScript5부터 적용되는 키워드. 쉽게말해 안전한 코딩을 위한 가이드라인
+	// 안 좋은 자바스크립트 코딩패턴들을 코칭해주는 자바스크립트 문법 검사기
+	// 최상위에 사용, IE10 이전 버전 미지원
 	'use strict';
 
 	var app = {
@@ -21,13 +24,21 @@
  * 
  ******************************************************************************/
 	$(document).ready(function(){
-		if ( app.autoLogin && app.user.ID ){
-			app.moveComponent("/components/home/home.jsp");
+		
+		// 자동로그인
+		if ( localStorage.autoLogin == 'true' ){
+			var user = JSON.parse( localStorage.user );
+			
+			if (user.ID) {
+				$("#id").val( user.ID );
+				var comSubmit = new ComSubmit();
+				comSubmit.setUrl("/components/home/home.jsp");
+				comSubmit.submit();
+			}
 		}
 	});
 	
 	document.getElementById('btn_login').addEventListener('click', function() {
-		//app.loginProcess();
 		
 		// test 사번
 		if ( $("#id").val() == 'e' ) {
@@ -35,28 +46,23 @@
 			$("#pw").val("init1234");
 		}
 		
+		if ( gfn_isNull( $("#id").val().trim() )){
+			alert("아이디가 입력되지 않았습니다.");
+			$("#id").focus();
+			return false;
+		}
+		
+		if ( gfn_isNull( $("#pw").val().trim() )){
+			alert("비밀번호가 입력되지 않았습니다.");
+			$("#pw").focus();
+			return false;
+		}
+		
 		var id = document.getElementById('id').value;
 		var pw = document.getElementById('pw').value;
 		
-		
 		app.loginProcess(id, pw);
 		
-//	    var select = document.getElementById('selectCityToAdd');
-//	    var selected = select.options[select.selectedIndex];
-//	    var key = selected.value;
-//	    var label = selected.textContent;
-//	    if (!app.selectedCities) {
-//	      app.selectedCities = [];
-//	    }
-//	    app.getForecast(key, label);
-//	    app.selectedCities.push({key: key, label: label});
-//	    app.saveSelectedCities();
-//	    app.toggleAddDialog(false);
-	    
-		console.log( app.user.ID );
-		if ( app.user.ID ){
-			alert("로그인");
-		}
 	});
 	
 	
@@ -77,8 +83,11 @@
 		data.lastUpdateDt = lastUpdateDt;
 		
 		var user = JSON.stringify(data);
-	    localStorage.user = user;	// 로컬에 저장
-	    localStorage.autoLogin = $("#chk_autoLogin").val();
+		var autoLogin = document.getElementById("chk_autoLogin").checked;
+		
+		// 로컬에 저장
+	    localStorage.user = user;	
+	    localStorage.autoLogin = autoLogin;
 	}
 
 /*******************************************************************************
@@ -101,6 +110,7 @@
 						var msg = results.msg;
 						var resultCd = results.resultCd;
 						
+						console.log(results);
 						if (resultCd == "200") {
 							var userInfo = results.userInfo;
 							app.saveUserInfo(userInfo);
@@ -126,6 +136,7 @@
 					if (resultCd == "200") {
 						var userInfo = results.userInfo;
 						app.saveUserInfo(userInfo);
+						app.moveComponent("/components/home/home.jsp");
 					} else {
 						alert(msg);
 					}

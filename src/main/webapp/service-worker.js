@@ -8,10 +8,12 @@ var filesToCache = [
 	'/styles/base.css',
 	'/styles/inline.css',
 	'/include/header.html',
-	'/include/leftMenu.html'
-/*	
+	'/include/leftMenu.html',
+
 	//componets
-	'/components/home/home.html',
+	'/components/home/home.html'		// , 조심!!
+	
+	/*	
 	'/components/home/homeApp.js'*/
 	];
 

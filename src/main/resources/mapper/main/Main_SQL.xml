@@ -5,7 +5,7 @@
      <select id="selectEnotisUser" parameterType="hashmap" resultType="hashmap">
      	<![CDATA[
      		/* SQL_ID=main.selectEnotisUser */
-     		SELECT A.NFUID, A.USER_PASSWD, SCP.DEC_B64('DAMO','SID','NIST_MAIL', B.MAIL) AS MAIL
+     		SELECT A.NFUID, A.USER_PASSWD, SCP.DEC_B64('DAMO','SID','NIST_MAIL', B.MAIL) as MAIL, A.NFCN as NAME
 			  FROM XFORG_PERSON A
 			     , XFORG_PERSON_INFO B
 			 WHERE A.NFUID = B.NFUID

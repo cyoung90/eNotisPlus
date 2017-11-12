@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -60,20 +61,22 @@ public class MainController {
 				result.put("msg", "아이디가 존재하지 않습니다.");
 			
 			}else if( encPw.equals(userInfo.get("USER_PASSWD")) ) {
+				userInfo.remove("USER_PASSWD");
+				userInfo.put("LOGIN_COOKIE", session.getId());
+				
 				result.put("userInfo", userInfo);
 				result.put("resultCd", "200");
 				result.put("msg", "로그인 성공");
-				
 				session.setAttribute("login", userInfo);
 //				if ( dto.isUseCookie() ){ // dto 클래스 안에 useCookie 항목에 폼에서 넘어온 쿠키사용 여부(true/false)가 들어있을 것임
 //	                // 쿠키 사용한다는게 체크되어 있으면...
 //	                // 쿠키를 생성하고 현재 로그인되어 있을 때 생성되었던 세션의 id를 쿠키에 저장한다.
-//	                Cookie cookie = new Cookie("loginCookie", session.getId());
+	                Cookie cookie = new Cookie("loginCookie", session.getId());
 //	                // 쿠키를 찾을 경로를 컨텍스트 경로로 변경해 주고...
-//	                cookie.setPath("/");
-//	                cookie.setMaxAge(60*60*24*7); // 단위는 (초)임으로 7일정도로 유효시간을 설정해 준다.
+	                cookie.setPath("/");
+	                cookie.setMaxAge(60*60*24*7); // 단위는 (초)임으로 7일정도로 유효시간을 설정해 준다.
 //	                // 쿠키를 적용해 준다.
-//	                response.addCookie(cookie);
+	                response.addCookie(cookie);
 //	            }
 
 			}else {

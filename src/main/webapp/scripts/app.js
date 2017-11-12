@@ -25,12 +25,19 @@
  ******************************************************************************/
 	$(document).ready(function(){
 		
+		console.log("# localStorage.autoLogin >>>>>>>>>>>>>>>>>>>>>>>>", localStorage);
+		
 		// 자동로그인
 		if ( localStorage.autoLogin == 'true' ){
 			var user = JSON.parse( localStorage.user );
+			$("[for='chk_autoLogin']").addClass("is-checked");
+			console.log("# 1 >>>>>>>>>>>>>>>>>>>>>>>>", user);
 			
-			if (user.ID) {
+			if ( !gfn_isNull(user.ID) ) {
+				console.log("# 2 >>>>>>>>>>>>>>>>>>>>>>>>", user.ID);
 				$("#id").val( user.ID );
+				
+				localStorage.loginInit = "auto";
 				var comSubmit = new ComSubmit();
 				comSubmit.setUrl("/components/home/home.jsp");
 				comSubmit.submit();
@@ -80,7 +87,7 @@
 	app.saveUserInfo = function(data) {
 		
 		var lastUpdateDt = new Date();
-		data.lastUpdateDt = lastUpdateDt;
+		data.LAST_LOGIN_DT = lastUpdateDt;
 		
 		var user = JSON.stringify(data);
 		var autoLogin = document.getElementById("chk_autoLogin").checked;
@@ -114,6 +121,7 @@
 						if (resultCd == "200") {
 							var userInfo = results.userInfo;
 							app.saveUserInfo(userInfo);
+							localStorage.loginInit = "init";
 							app.moveComponent("/components/home/home.jsp");
 						}
 						
@@ -136,6 +144,7 @@
 					if (resultCd == "200") {
 						var userInfo = results.userInfo;
 						app.saveUserInfo(userInfo);
+						localStorage.loginInit = "init";
 						app.moveComponent("/components/home/home.jsp");
 					} else {
 						alert(msg);
@@ -169,10 +178,10 @@
 	};
 
 	var initUser = {
-			id: '8300120',
-			name: '최차영',
-			mail: 'chayoung_choi@daekyo.co.kr',
-			lastUpdateDt: '20171107180000'
+			NFUID: '8300120',
+			NAME: '최차영',
+			MAIL: 'chayoung_choi@daekyo.co.kr',
+			LAST_LOGIN_DT: '20171107180000'
 	}
 
 	// 화면 이동

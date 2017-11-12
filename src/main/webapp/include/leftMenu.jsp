@@ -118,7 +118,7 @@
 		
 		var dialog = document.querySelector('dialog');
 	    var showModalButton = document.querySelector('.show-modal');
-	    if (! dialog.showModal) {
+	    if (!dialog.showModal) {
 			dialogPolyfill.registerDialog(dialog);
 	    }
 	    showModalButton.addEventListener('click', function() {

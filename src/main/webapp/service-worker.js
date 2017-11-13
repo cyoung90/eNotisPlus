@@ -9,6 +9,7 @@ var filesToCache = [
 	'/styles/inline.css',
 	'/include/header.html',
 	'/include/leftMenu.html',
+	'/include/include-body.jsp',
 	'/common/taglibs.jsp',
 
 	//componets

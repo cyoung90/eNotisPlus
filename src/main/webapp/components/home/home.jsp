@@ -4,9 +4,15 @@
 <html>
 <head>
 	<style type="text/css">
-		.mdl-card {text-align: center;}
-		.mdl-card__title   {width:100%}
+		.mdl-card {text-align: center; height:120%}
+		.mdl-card__title   {width:100%; height: 60%}
 		.mdl-card__title p {text-align:center; width:100%}
+		.main-btn1>.mdl-card__title {background-color: #E74C3C;}
+		.main-btn2>.mdl-card__title {background-color: #32B2DF;}
+		.main-btn3>.mdl-card__title {background-color: #9B59B6;}
+		.main-btn4>.mdl-card__title {background-color: #34495E;}
+		.main-btn5>.mdl-card__title {background-color: #F1C40F;}
+		.mdl-card--border {padding-top: 0}
 	</style>
 </head>
 <body>
@@ -33,14 +39,11 @@
   	<div class="mdl-grid demo-content">
   	
 		<div class="mdl-card main-card mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid
-					mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+					mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect main-btn1">
 			<div class="mdl-card__title">
+				<p>
+					<img src="../../images/menu/restaurant.png" class="demo-avatar">
 				</p>
-					<i class="material-icons">restaurant</i>
-				</p>
-			</div>
-			<div class="mdl-card__supporting-text">
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 			</div>
 			<div class="mdl-card__actions mdl-card--border">
 					<h4>주간식당메뉴</h4>
@@ -48,10 +51,10 @@
 		</div>
 
 		<div class="mdl-card mdl-color--white mdl-shadow--2dp mdl-cell mdl-grid mdl-cell--12-col-tablet mdl-cell--6-col-desktop
-					mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+					mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect main-btn2">
 			<div class="mdl-card__title mdl-card--expand">
 				<p>
-					<i class="material-icons">mail</i>
+					<img src="../../images/menu/mail.png" class="demo-avatar">
 				</p>
 			</div>
 			<div class="mdl-card__actions mdl-card--border">
@@ -60,10 +63,10 @@
 		</div>
 
 		<div class="mdl-card mdl-color--white mdl-shadow--2dp mdl-cell mdl-grid mdl-cell--12-col-tablet mdl-cell--6-col-desktop
-					mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+					mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect main-btn3">
 			<div class="mdl-card__title mdl-card--expand">
 				<p>
-					<i class="material-icons">speaker_notes</i>
+					<img src="../../images/menu/speaker_notes.png" class="demo-avatar">
 				</p>
 			</div>
 			<div class="mdl-card__actions mdl-card--border">
@@ -71,10 +74,10 @@
 			</div>
 		</div>
 		<div class="mdl-card mdl-color--white mdl-shadow--2dp mdl-cell mdl-grid mdl-cell--12-col-tablet mdl-cell--6-col-desktop
-					mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+					mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect main-btn4">
 			<div class="mdl-card__title mdl-card--expand">
 				<p>
-					<i class="material-icons">phone</i>
+					<img src="../../images/menu/phone.png" class="demo-avatar">
 				</p>
 			</div>
 			<div class="mdl-card__actions mdl-card--border">
@@ -82,10 +85,10 @@
 			</div>
 		</div>
 		<div class="mdl-card mdl-color--white mdl-shadow--2dp mdl-cell mdl-grid mdl-cell--12-col-tablet mdl-cell--6-col-desktop
-					mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+					mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect main-btn5">
 			<div class="mdl-card__title mdl-card--expand">
 				<p>
-					<i class="material-icons">wb_sunny</i>
+					<img src="../../images/menu/wb_sunny.png" class="demo-avatar">
 				</p>
 			</div>
 			<div class="mdl-card__actions mdl-card--border">
@@ -149,7 +152,19 @@
 				snackbarContainer.MaterialSnackbar.showSnackbar(data);
 				localStorage.removeItem('loginInit');
 			});
+			
+
 		}());
+		
+		if ('serviceWorker' in navigator) {
+			navigator.serviceWorker
+					 .register('../../service-worker.js')
+					 .then(function(registration) { 
+						 	console.log('ServiceWorker registration successful with scope:',  registration.scope);
+					 }).catch(function(error) {
+							console.log('ServiceWorker registration failed:', error);
+					 });
+		}
 		
 	</script>
 </body>

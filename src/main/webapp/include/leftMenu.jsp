@@ -54,22 +54,25 @@
 		</span>
 		<div class="demo-avatar-dropdown">
 			<ul>
-				<li>최차영</li>
-				<li>hello@example.com</li>
+				<li><span id="userName">이름</span></li>
+				<li><span id="userId">hello@example.com</span></li>
 			</ul>
+			<div id="tooltip-userId" class="mdl-tooltip" data-mdl-for="userId">
+				hello@example.com
+			</div>
 			<div class="mdl-layout-spacer"></div>
-			<button class="mdl-button show-modal mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+<!-- 			<button class="mdl-button show-modal mdl-js-button mdl-js-ripple-effect mdl-button--icon">
 				<i class="material-icons" role="presentation">lock</i>
-			</button>
-<!-- 			<button tyid="logout" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+			</button> -->
+ 			<button id="btn_lock" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
 				<i class="material-icons" role="presentation">lock</i>
 				<span class="visuallyhidden">logout</span>
-			</button> -->
-<!-- 			<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
-				<li class="mdl-menu__item">hello@example.com</li>
-				<li class="mdl-menu__item">info@example.com</li>
-				<li class="mdl-menu__item"><i class="material-icons">add</i>Add another account...</li>
-			</ul> -->
+			</button>
+			<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="btn_lock">
+				<li id="btn_logout" class="mdl-menu__item" style="justify-content: center;display: flex;align-items: center;">
+					<span>로그아웃</span><i class="material-icons" role="presentation">lock_open</i>
+				</li>
+			</ul>
 		</div>
 	</header>
 	<nav class="mdl-navigation "><!-- mdl-color--blue-grey-800 hAuto -->
@@ -116,7 +119,7 @@
 			return false;
 		})
 		
-		var dialog = document.querySelector('dialog');
+/* 		var dialog = document.querySelector('dialog');
 	    var showModalButton = document.querySelector('.show-modal');
 	    if (!dialog.showModal) {
 			dialogPolyfill.registerDialog(dialog);
@@ -130,7 +133,22 @@
 	    dialog.querySelector('#btn_logout').addEventListener('click', function() {
 	    	logoutProcess();
 	    });
+		 */
+		$("#btn_logout").click(function(){
+			 logoutProcess();
+		});
+		 
+		var user = JSON.parse( localStorage.user );
+		var userMail = user.MAIL;
+			
+		$("#userName").text( user.NAME );
+		$("#tooltip-userId").text( userMail );
 		
+		if ( userMail.length >= 20 ){
+			userMail = userMail.substr(0, 20) + "...";
+		}
+		
+		$("#userId").text( userMail );
 	});
 	
 	// 로그아웃, 로컬저장소 초기화
